@@ -1,0 +1,1869 @@
+{
+  "schema_version": 1,
+  "rules": [
+    {
+      "id": "1",
+      "pdf_page": 11,
+      "description": "Any one function (or method) will contain no more than 200 logical source lines of code (L- SLOCs).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "2",
+      "pdf_page": 11,
+      "description": "There shall not be any self-modifying code.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "3",
+      "pdf_page": 11,
+      "description": "All functions shall have a cyclomatic complexity number of 20 or less.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "4",
+      "pdf_page": 12,
+      "description": "To break a “should” rule, the following approval must be received by the developer: • approval from the software engineering lead (obtained by the unit approval in the developmental CM tool)",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "5",
+      "pdf_page": 12,
+      "description": "To break a “will” or a “shall” rule, the following approvals must be received by the developer: • approval from the software engineering lead (obtained by the unit approval in the developmental CM tool) • approval from the software product manager (obtained by the unit approval in the developmental CM tool)",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "6",
+      "pdf_page": 13,
+      "description": "Each deviation from a “shall” rule shall be documented in the file that contains the deviation). Deviations from this rule shall not be allowed, AV Rule 5 notwithstanding.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "7",
+      "pdf_page": 13,
+      "description": "Approval will not be required for a deviation from a “shall” or “will” rule that complies with an exception specified by that rule.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "8",
+      "pdf_page": 16,
+      "description": "All code shall conform to ISO/IEC 14882:2002(E) standard C++. [10]",
+      "detection": "review",
+      "modern_note": "Review conformance against the C++ standard selected by each compile command rather than the 2002 edition.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "9",
+      "pdf_page": 16,
+      "description": "Only those characters specified in the C++ basic source character set will be used. This set includes 96 characters: the space character, the control characters representing horizontal tab, vertical tab, form feed, and newline, and the following 91 graphical characters: a b c d e f g h i j k l m n o p q r s t u v w x y z A B C D E F G H I J K L M N O P Q R S T U V W X Y Z 0 1 2 3 4 5 6 7 8 9 _ { } [ ] # ( ) < > % : ; . ? * + - / ^ & | ~ ! = , \\ \" ’",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "10",
+      "pdf_page": 16,
+      "description": "Values of character types will be restricted to a defined and documented subset of ISO 10646-1. [9]",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "11",
+      "pdf_page": 16,
+      "description": "Trigraphs will not be used. Trigraph sequences are three-character sequences that are replaced by a corresponding single character, as follows: Alternative Primary alternative primary alternative primary ??= # ??( [ ??< { ??/ \\ ??) ] ??> } ??' ^ ??! | ??- ~ The trigraph sequences provide a way to specify characters that are missing on some terminals, but that the C++ language uses.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "12",
+      "pdf_page": 17,
+      "description": "The following digraphs will not be used: Alternative Primary alternative Primary <% { :> ] %> } %: # <: [ %:%: ## The digraphs listed above provide a way to specify characters that are missing on some terminals, but that the C++ language uses.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "13",
+      "pdf_page": 17,
+      "description": "Multi-byte characters and wide string literals will not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "14",
+      "pdf_page": 17,
+      "description": "Literal suffixes shall use uppercase rather than lowercase letters.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "15",
+      "pdf_page": 17,
+      "description": "Provision shall be made for run-time checking (defensive programming).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "16",
+      "pdf_page": 18,
+      "description": "Only DO-178B level A [15] certifiable or SEAL 1 C/C++ libraries shall be used with safety- critical (i.e. SEAL 1) code [13].",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "17",
+      "pdf_page": 18,
+      "description": "The error indicator errno shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "18",
+      "pdf_page": 18,
+      "description": "The macro offsetof, in library <stddef.h>, shall not be used.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "19",
+      "pdf_page": 18,
+      "description": "<locale.h> and the setlocale function shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "20",
+      "pdf_page": 18,
+      "description": "The setjmp macro and the longjmp function shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "21",
+      "pdf_page": 18,
+      "description": "The signal handling facilities of <signal.h> shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "22",
+      "pdf_page": 18,
+      "description": "The input/output library <stdio.h> shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "23",
+      "pdf_page": 18,
+      "description": "The library functions atof, atoi and atol from library <stdlib.h> shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "24",
+      "pdf_page": 19,
+      "description": "The library functions abort, exit, getenv and system from library <stdlib.h> shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "25",
+      "pdf_page": 19,
+      "description": "The time handling functions of library <time.h> shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "26",
+      "pdf_page": 19,
+      "description": "Only the following pre-processor directives shall be used: 1. #ifndef 2. #define 3. #endif 4. #include",
+      "detection": "automated",
+      "modern_note": "Allows #pragma once in addition to the literal directive list.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "27",
+      "pdf_page": 19,
+      "description": "#ifndef, #define and #endif will be used to prevent multiple inclusions of the same header file. Other techniques to prevent the multiple inclusions of header files will not be used.",
+      "detection": "review",
+      "modern_note": "Allows #pragma once as an alternative header inclusion guard.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "28",
+      "pdf_page": 19,
+      "description": "The #ifndef and #endif pre-processor directives will only be used as defined in AV Rule 27 to prevent multiple inclusions of the same header file.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "29",
+      "pdf_page": 20,
+      "description": "The #define pre-processor directive shall not be used to create inline macros. Inline functions shall be used instead.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "30",
+      "pdf_page": 20,
+      "description": "The #define pre-processor directive shall not be used to define constant values. Instead, the const qualifier shall be applied to variable declarations to specify constant values.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "31",
+      "pdf_page": 20,
+      "description": "The #define pre-processor directive will only be used as part of the technique to prevent multiple inclusions of the same header file.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "32",
+      "pdf_page": 20,
+      "description": "The #include pre-processor directive will only be used to include header (*.h) files.",
+      "detection": "automated",
+      "modern_note": "Allows standard C++ headers and project headers without a .h suffix.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "33",
+      "pdf_page": 21,
+      "description": "The #include directive shall use the <filename.h> notation to include header files. Note that relative pathnames may also be used. See also AV Rule 53, AV Rule 53.1, and AV Rule 55 for additional information regarding header file names.",
+      "detection": "automated",
+      "modern_note": "Allows quoted project includes as well as angle-bracket includes.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "34",
+      "pdf_page": 21,
+      "description": "Header files should contain logically related declarations only.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "35",
+      "pdf_page": 21,
+      "description": "A header file will contain a mechanism that prevents multiple inclusions of itself.",
+      "detection": "automated",
+      "modern_note": "Allows either a macro guard or #pragma once to prevent duplicate inclusion.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "36",
+      "pdf_page": 21,
+      "description": "Compilation dependencies should be minimized when possible. (Stroustrup [2], Meyers [6], item 34)",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "37",
+      "pdf_page": 21,
+      "description": "Header (include) files should include only those header files that are required for them to successfully compile. Files that are only used by the associated .cpp file should be placed in the .cpp file—not the .h file.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "38",
+      "pdf_page": 22,
+      "description": "Declarations of classes that are only accessed via pointers (*) or references (&) should be supplied by forward headers that contain only forward declarations.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "39",
+      "pdf_page": 22,
+      "description": "Header files (*.h) will not contain non-const variable definitions or function definitions. (See also AV Rule 139.)",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "40",
+      "pdf_page": 22,
+      "description": "Every implementation file shall include the header files that uniquely define the inline functions, types, and templates used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "41",
+      "pdf_page": 22,
+      "description": "Source lines will be kept to a length of 120 characters or less.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "42",
+      "pdf_page": 23,
+      "description": "Each expression-statement will be on a separate line.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "43",
+      "pdf_page": 23,
+      "description": "Tabs should be avoided.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "44",
+      "pdf_page": 23,
+      "description": "All indentations will be at least two spaces and be consistent within the same source file.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "45",
+      "pdf_page": 23,
+      "description": "All words in an identifier will be separated by the ‘_’ character.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "46",
+      "pdf_page": 23,
+      "description": "User-specified identifiers (internal and external) will not rely on significance of more than 64 characters.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "47",
+      "pdf_page": 23,
+      "description": "Identifiers will not begin with the underscore character ‘_’.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "48",
+      "pdf_page": 24,
+      "description": "Identifiers will not differ by: • Only a mixture of case • The presence/absence of the underscore character • The interchange of the letter ‘O’, with the number ‘0’ or the letter ‘D’ • The interchange of the letter ‘I’, with the number ‘1’ or the letter ‘l’ • The interchange of the letter ‘S’ with the number ‘5’ • The interchange of the letter ‘Z’ with the number 2 • The interchange of the letter ‘n’ with the letter ‘h’.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "49",
+      "pdf_page": 24,
+      "description": "All acronyms in an identifier will be composed of uppercase letters.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "50",
+      "pdf_page": 24,
+      "description": "The first word of the name of a class, structure, namespace, enumeration, or type created with typedef will begin with an uppercase letter. All others letters will be lowercase.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "51",
+      "pdf_page": 25,
+      "description": "All letters contained in function and variable names will be composed entirely of lowercase letters.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "52",
+      "pdf_page": 25,
+      "description": "Identifiers for constant and enumerator values shall be lowercase.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "53",
+      "pdf_page": 25,
+      "description": "Header files will always have a file name extension of \".h\".",
+      "detection": "automated",
+      "modern_note": "Allows .h, .hpp, .hh, and .hxx header suffixes.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "53.1",
+      "pdf_page": 25,
+      "description": "The following character sequences shall not appear in header file names: ‘, \\, /*, //, or \".",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "54",
+      "pdf_page": 26,
+      "description": "Implementation files will always have a file name extension of \".cpp\".",
+      "detection": "automated",
+      "modern_note": "Allows .cpp, .cc, .cxx, and .c++ implementation suffixes.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "55",
+      "pdf_page": 26,
+      "description": "The name of a header file should reflect the logical entity for which it provides declarations.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "56",
+      "pdf_page": 26,
+      "description": "The name of an implementation file should reflect the logical entity for which it provides definitions and have a “.cpp” extension (this name will normally be identical to the header file that provides the corresponding declarations.) At times, more than one .cpp file for a given logical entity will be required. In these cases, a suffix should be appended to reflect a logical differentiation. Example 1: One .cpp file for the Matrix class: Matrix.cpp Example 2: Multiple files for a math library: Math_sqrt.cpp Math_sin.cpp Math_cos.cpp",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "57",
+      "pdf_page": 26,
+      "description": "The public, protected, and private sections of a class will be declared in that order (the public section is declared before the protected section which is declared before the private section).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "58",
+      "pdf_page": 26,
+      "description": "When declaring and defining functions with more than two parameters, the leading parenthesis and the first argument will be written on the same line as the function name. Each additional argument will be written on a separate line (with the closing parenthesis directly after the last argument).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "59",
+      "pdf_page": 27,
+      "description": "The statements forming the body of an if, else if, else, while, do…while or for statement shall always be enclosed in braces, even if the braces form an empty block.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "60",
+      "pdf_page": 27,
+      "description": "Braces (\"{}\") which enclose a block will be placed in the same column, on separate lines directly before and after the block.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "61",
+      "pdf_page": 27,
+      "description": "Braces (\"{}\") which enclose a block will have nothing else on the line except comments (if necessary).",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "62",
+      "pdf_page": 27,
+      "description": "The dereference operator ‘*’ and the address-of operator ‘&’ will be directly connected with the type-specifier.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "63",
+      "pdf_page": 27,
+      "description": "Spaces will not be used around ‘.’ or ‘->’, nor between unary operators and operands.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "64",
+      "pdf_page": 28,
+      "description": "A class interface should be complete and minimal. See Meyers [6], item 18.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "65",
+      "pdf_page": 28,
+      "description": "A structure should be used to model an entity that does not require an invariant.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "66",
+      "pdf_page": 28,
+      "description": "A class should be used to model an entity that maintains an invariant.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "67",
+      "pdf_page": 28,
+      "description": "Public and protected data should only be used in structs—not classes.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "68",
+      "pdf_page": 28,
+      "description": "Unneeded implicitly generated member functions shall be explicitly disallowed. See Meyers [6], item 27.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "69",
+      "pdf_page": 29,
+      "description": "A member function that does not affect the state of an object (its instance variables) will be declared const. Member functions should be const by default. Only when there is a clear, explicit reason should the const modifier on member functions be omitted.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "70",
+      "pdf_page": 29,
+      "description": "A class will have friends only when a function or object requires access to the private elements of the class, but is unable to be a member of the class for logical or efficiency reasons.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "70.1",
+      "pdf_page": 29,
+      "description": "An object shall not be improperly used before its lifetime begins or after its lifetime ends.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "71",
+      "pdf_page": 30,
+      "description": "Calls to an externally visible operation of an object, other than its constructors, shall not be allowed until the object has been fully initialized.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "71.1",
+      "pdf_page": 30,
+      "description": "A class’s virtual functions shall not be invoked from its destructor or any of its constructors.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "72",
+      "pdf_page": 30,
+      "description": "The invariant2 for a class should be: • a part of the postcondition of every class constructor, • a part of the precondition of the class destructor (if any), • a part of the precondition and postcondition of every other publicly accessible operation.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "73",
+      "pdf_page": 30,
+      "description": "Unnecessary default constructors shall not be defined. See Meyers [7], item 4. (See also AV Rule 143).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "74",
+      "pdf_page": 30,
+      "description": "Initialization of nonstatic class members will be performed through the member initialization list rather than through assignment in the body of a constructor. See Meyers [6], item 12.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "75",
+      "pdf_page": 31,
+      "description": "Members of the initialization list shall be listed in the order in which they are declared in the class. See Stroustrup [2], 10.4.5 and Meyers [6], item 13.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "76",
+      "pdf_page": 31,
+      "description": "A copy constructor and an assignment operator shall be declared for classes that contain pointers to data items or nontrivial destructors. See Meyers [6], item 11.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "77",
+      "pdf_page": 31,
+      "description": "A copy constructor shall copy all data members and bases that affect the class invariant (a data element representing a cache, for example, would not need to be copied).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "77.1",
+      "pdf_page": 31,
+      "description": "The definition of a member function shall not contain default arguments that produce a signature identical to that of the implicitly-declared copy constructor for the corresponding class/structure.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "78",
+      "pdf_page": 31,
+      "description": "All base classes with a virtual function shall define a virtual destructor.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "79",
+      "pdf_page": 32,
+      "description": "All resources acquired by a class shall be released by the class’s destructor. See Stroustrup [2], 14.4 and Meyers [7], item 9.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "80",
+      "pdf_page": 32,
+      "description": "The default copy and assignment operators will be used for classes when those operators offer reasonable semantics.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "81",
+      "pdf_page": 32,
+      "description": "The assignment operator shall handle self-assignment correctly (see Stroustrup [2], Appendix E.3.3 and 10.4.4)",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "82",
+      "pdf_page": 32,
+      "description": "An assignment operator shall return a reference to *this.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "83",
+      "pdf_page": 32,
+      "description": "An assignment operator shall assign all data members and bases that affect the class invariant (a data element representing a cache, for example, would not need to be copied).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "84",
+      "pdf_page": 32,
+      "description": "Operator overloading will be used sparingly and in a conventional manner.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "85",
+      "pdf_page": 33,
+      "description": "When two operators are opposites (such as == and !=), both will be defined and one will be defined in terms of the other.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "86",
+      "pdf_page": 33,
+      "description": "Concrete types should be used to represent simple independent concepts. See Stroustrup [2], 25.2.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "87",
+      "pdf_page": 33,
+      "description": "Hierarchies should be based on abstract classes. See Stroustrup [2], 12.5.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "88",
+      "pdf_page": 33,
+      "description": "Multiple inheritance shall only be allowed in the following restricted form: n interfaces plus m private implementations, plus at most one protected implementation.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "88.1",
+      "pdf_page": 34,
+      "description": "A stateful virtual base shall be explicitly declared in each derived class that accesses it.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "89",
+      "pdf_page": 34,
+      "description": "A base class shall not be both virtual and non-virtual in the same hierarchy.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "90",
+      "pdf_page": 34,
+      "description": "Heavily used interfaces should be minimal, general and abstract. See Stroustrup [2] 23.4.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "91",
+      "pdf_page": 34,
+      "description": "Public inheritance will be used to implement “is-a” relationships. See Meyers [6], item 35.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "92",
+      "pdf_page": 35,
+      "description": "A subtype (publicly derived classes) will conform to the following guidelines with respect to all classes involved in the polymorphic assignment of different subclass instances to the same variable or parameter during the execution of the system: • Preconditions of derived methods must be at least as weak as the preconditions of the methods they override. • Postconditions of derived methods must be at least as strong as the postconditions of the methods they override. In other words, subclass methods must expect less and deliver more than the base class methods they override. This rule implies that subtypes will conform to the Liskov Substitution Principle.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "93",
+      "pdf_page": 35,
+      "description": "“has-a” or “is-implemented-in-terms-of” relationships will be modeled through membership or non-public inheritance. See Meyers [6], item 40.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "94",
+      "pdf_page": 35,
+      "description": "An inherited nonvirtual function shall not be redefined in a derived class. See Meyers [6], item 37.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "95",
+      "pdf_page": 35,
+      "description": "An inherited default parameter shall never be redefined. See Meyers [6], item 38.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "96",
+      "pdf_page": 35,
+      "description": "Arrays shall not be treated polymorphically. See Meyers [7], item 3.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "97",
+      "pdf_page": 36,
+      "description": "Arrays shall not be used in interfaces. Instead, the Array class should be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "97.1",
+      "pdf_page": 36,
+      "description": "Neither operand of an equality operator (== or !=) shall be a pointer to a virtual member function.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "98",
+      "pdf_page": 37,
+      "description": "Every nonlocal name, except main(), should be placed in some namespace. See Stroustrup [2], 8.2.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "99",
+      "pdf_page": 37,
+      "description": "Namespaces will not be nested more than two levels deep.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "100",
+      "pdf_page": 37,
+      "description": "Elements from a namespace should be selected as follows: • using declaration or explicit qualification for few (approximately five) names, • using directive for many names.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "101",
+      "pdf_page": 38,
+      "description": "Templates shall be reviewed as follows: 1. with respect to the template in isolation considering assumptions or requirements placed on its arguments. 2. with respect to all functions instantiated by actual arguments.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "102",
+      "pdf_page": 38,
+      "description": "Template tests shall be created to cover all actual template instantiations.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "103",
+      "pdf_page": 38,
+      "description": "Constraint checks should be applied to template arguments.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "104",
+      "pdf_page": 38,
+      "description": "A template specialization shall be declared before its use. See Stroustrup [2], 13.5.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "105",
+      "pdf_page": 39,
+      "description": "A template definition’s dependence on its instantiation contexts should be minimized. See Stroustrup [2], 13.2.5 and C.13.8.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "106",
+      "pdf_page": 39,
+      "description": "Specializations for pointer types should be made where appropriate. See Stroustrup [2], 13.5.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "107",
+      "pdf_page": 39,
+      "description": "Functions shall always be declared at file scope.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "108",
+      "pdf_page": 39,
+      "description": "Functions with variable numbers of arguments shall not be used.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "109",
+      "pdf_page": 39,
+      "description": "A function definition should not be placed in a class specification unless the function is intended to be inlined.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "110",
+      "pdf_page": 40,
+      "description": "Functions with more than 7 arguments will not be used.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "111",
+      "pdf_page": 40,
+      "description": "A function shall not return a pointer or reference to a non-static local object.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "112",
+      "pdf_page": 40,
+      "description": "Function return values should not obscure resource ownership.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "113",
+      "pdf_page": 40,
+      "description": "Functions will have a single exit point.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "114",
+      "pdf_page": 40,
+      "description": "All exit points of value-returning functions shall be through return statements.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "115",
+      "pdf_page": 40,
+      "description": "If a function returns error information, then that error information will be tested.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "116",
+      "pdf_page": 41,
+      "description": "Small, concrete-type arguments (two or three words in size) should be passed by value if changes made to formal parameters should not be reflected in the calling function.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "117",
+      "pdf_page": 41,
+      "description": "Arguments should be passed by reference if NULL values are not possible:",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "117.1",
+      "pdf_page": 41,
+      "description": "An object should be passed as const T& if the function should not change the value of the object.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "117.2",
+      "pdf_page": 41,
+      "description": "An object should be passed as T& if the function may change the value of the object.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "118",
+      "pdf_page": 41,
+      "description": "Arguments should be passed via pointers if NULL values are possible:",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "118.1",
+      "pdf_page": 41,
+      "description": "An object should be passed as const T* if its value should not be modified.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "118.2",
+      "pdf_page": 41,
+      "description": "An object should be passed as T* if its value may be modified.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "119",
+      "pdf_page": 41,
+      "description": "Functions shall not call themselves, either directly or indirectly (i.e. recursion shall not be allowed).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "120",
+      "pdf_page": 42,
+      "description": "Overloaded operations or methods should form families that use the same semantics, share the same name, have the same purpose, and that are differentiated by formal parameters.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "121",
+      "pdf_page": 42,
+      "description": "Only functions with 1 or 2 statements should be considered candidates for inline functions.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "122",
+      "pdf_page": 43,
+      "description": "Trivial accessor and mutator functions should be inlined.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "123",
+      "pdf_page": 43,
+      "description": "The number of accessor and mutator functions should be minimized.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "124",
+      "pdf_page": 43,
+      "description": "Trivial forwarding functions should be inlined.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "125",
+      "pdf_page": 43,
+      "description": "Unnecessary temporary objects should be avoided. See Meyers [7], item 19, 20, 21.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "126",
+      "pdf_page": 43,
+      "description": "Only valid C++ style comments (//) shall be used. See AV Rule 126 in Appendix A for additional details concerning valid C++ style comments.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "127",
+      "pdf_page": 44,
+      "description": "Code that is not used (commented out) shall be deleted.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "128",
+      "pdf_page": 44,
+      "description": "Comments that document actions or sources (e.g. tables, figures, paragraphs, etc.) outside of the file being documented will not be allowed.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "129",
+      "pdf_page": 44,
+      "description": "Comments in header files should describe the externally visible behavior of the functions or classes being documented.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "130",
+      "pdf_page": 44,
+      "description": "The purpose of every line of executable code should be explained by a comment, although one comment may describe more than one line of code.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "131",
+      "pdf_page": 44,
+      "description": "One should avoid stating in comments what is better stated in code (i.e. do not simply repeat what is in the code).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "132",
+      "pdf_page": 44,
+      "description": "Each variable declaration, typedef, enumeration value, and structure member will be commented.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "133",
+      "pdf_page": 45,
+      "description": "Every source file will be documented with an introductory comment that provides information on the file name, its contents, and any program-required information (e.g. legal statements, copyright information, etc).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "134",
+      "pdf_page": 45,
+      "description": "Assumptions (limitations) made by functions should be documented in the function’s preamble.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "135",
+      "pdf_page": 45,
+      "description": "Identifiers in an inner scope shall not use the same name as an identifier in an outer scope, and therefore hide that identifier.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "136",
+      "pdf_page": 45,
+      "description": "Declarations should be at the smallest feasible scope. (See also AV Rule 143).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "137",
+      "pdf_page": 45,
+      "description": "All declarations at file scope should be static where possible.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "138",
+      "pdf_page": 45,
+      "description": "Identifiers shall not simultaneously have both internal and external linkage in the same translation unit.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "139",
+      "pdf_page": 46,
+      "description": "External objects will not be declared in more than one file. (See also AV Rule 39.)",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "140",
+      "pdf_page": 46,
+      "description": "The register storage class specifier shall not be used.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "141",
+      "pdf_page": 46,
+      "description": "A class, structure, or enumeration will not be declared in the definition of its type.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "142",
+      "pdf_page": 46,
+      "description": "All variables shall be initialized before use. (See also AV Rule 136, AV Rule 71, and AV Rule 73, and AV Rule 143 concerning declaration scope, object construction, default constructors, and the point of variable introduction respectively.)",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "143",
+      "pdf_page": 46,
+      "description": "Variables will not be introduced until they can be initialized with meaningful values. (See also AV Rule 136, AV Rule 142, and AV Rule 73 concerning declaration scope, initialization before use, and default constructors respectively.)",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "144",
+      "pdf_page": 46,
+      "description": "Braces shall be used to indicate and match the structure in the non-zero initialization of arrays and structures.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "145",
+      "pdf_page": 47,
+      "description": "In an enumerator list, the ‘=‘ construct shall not be used to explicitly initialize members other than the first, unless all items are explicitly initialized.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "146",
+      "pdf_page": 47,
+      "description": "Floating point implementations shall comply with a defined floating point standard. The standard that will be used is the ANSI/IEEE Std 754 [1].",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "147",
+      "pdf_page": 47,
+      "description": "The underlying bit representations of floating point numbers shall not be used in any way by the programmer.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "148",
+      "pdf_page": 47,
+      "description": "Enumeration types shall be used instead of integer types (and constants) to select from a limited series of choices.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "149",
+      "pdf_page": 47,
+      "description": "Octal constants (other than zero) shall not be used.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "150",
+      "pdf_page": 47,
+      "description": "Hexadecimal constants will be represented using all uppercase letters.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "151",
+      "pdf_page": 48,
+      "description": "Numeric values in code will not be used; symbolic values will be used instead.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "151.1",
+      "pdf_page": 48,
+      "description": "A string literal shall not be modified. Note that strictly conforming compilers should catch violations, but many do not.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "152",
+      "pdf_page": 48,
+      "description": "Multiple variable declarations shall not be allowed on the same line.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "153",
+      "pdf_page": 49,
+      "description": "Unions shall not be used.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "154",
+      "pdf_page": 49,
+      "description": "Bit-fields shall have explicitly unsigned integral or enumeration types only.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "155",
+      "pdf_page": 49,
+      "description": "Bit-fields will not be used to pack data into a word for the sole purpose of saving space.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "156",
+      "pdf_page": 49,
+      "description": "All the members of a structure (or class) shall be named and shall only be accessed via their names.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "157",
+      "pdf_page": 50,
+      "description": "The right hand operand of a && or || operator shall not contain side effects.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "158",
+      "pdf_page": 50,
+      "description": "The operands of a logical && or || shall be parenthesized if the operands contain binary operators.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "159",
+      "pdf_page": 50,
+      "description": "Operators ||, &&, and unary & shall not be overloaded. See Meyers [7], item 7.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "160",
+      "pdf_page": 50,
+      "description": "An assignment expression shall be used only as the expression in an expression statement.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "162",
+      "pdf_page": 50,
+      "description": "Signed and unsigned values shall not be mixed in arithmetic or comparison operations.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "163",
+      "pdf_page": 50,
+      "description": "Unsigned arithmetic shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "164",
+      "pdf_page": 50,
+      "description": "The right hand operand of a shift operator shall lie between zero and one less than the width in bits of the left-hand operand (inclusive).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "164.1",
+      "pdf_page": 51,
+      "description": "The left-hand operand of a right-shift operator shall not have a negative value.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "165",
+      "pdf_page": 51,
+      "description": "The unary minus operator shall not be applied to an unsigned expression.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "166",
+      "pdf_page": 51,
+      "description": "The sizeof operator will not be used on expressions that contain side effects.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "167",
+      "pdf_page": 51,
+      "description": "The implementation of integer division in the chosen compiler shall be determined, documented and taken into account.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "168",
+      "pdf_page": 51,
+      "description": "The comma operator shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "169",
+      "pdf_page": 51,
+      "description": "Pointers to pointers should be avoided when possible.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "170",
+      "pdf_page": 51,
+      "description": "More than 2 levels of pointer indirection shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "171",
+      "pdf_page": 52,
+      "description": "Relational operators shall not be applied to pointer types except where both operands are of the same type and point to: • the same object, • the same function, • members of the same object, or • elements of the same array (including one past the end of the same array). Note that if either operand is null, then both shall be null. Also, “members of the same object” should not be construed to include base class subobjects (See also AV Rule 210).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "173",
+      "pdf_page": 52,
+      "description": "The address of an object with automatic storage shall not be assigned to an object which persists after the object has ceased to exist.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "174",
+      "pdf_page": 52,
+      "description": "The null pointer shall not be de-referenced.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "175",
+      "pdf_page": 52,
+      "description": "A pointer shall not be compared to NULL or be assigned NULL; use plain 0 instead.",
+      "detection": "review",
+      "modern_note": "Use nullptr instead of the legacy plain-0 null pointer spelling.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "176",
+      "pdf_page": 52,
+      "description": "A typedef will be used to simplify program syntax when declaring function pointers.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "177",
+      "pdf_page": 53,
+      "description": "User-defined conversion functions should be avoided. See Meyers [7], item 5.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "178",
+      "pdf_page": 53,
+      "description": "Down casting (casting from base to derived class) shall only be allowed through one of the following mechanism: • Virtual functions that act like dynamic casts (most likely useful in relatively simple cases) • Use of the visitor (or similar) pattern (most likely useful in complicated cases)",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "179",
+      "pdf_page": 53,
+      "description": "A pointer to a virtual base class shall not be converted to a pointer to a derived class.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "180",
+      "pdf_page": 53,
+      "description": "Implicit conversions that may result in a loss of information shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "181",
+      "pdf_page": 54,
+      "description": "Redundant explicit casts will not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "182",
+      "pdf_page": 54,
+      "description": "Type casting from any type to or from pointers shall not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "183",
+      "pdf_page": 54,
+      "description": "Every possible measure should be taken to avoid type casting.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "184",
+      "pdf_page": 54,
+      "description": "Floating point numbers shall not be converted to integers unless such a conversion is a specified algorithmic requirement or is necessary for a hardware interface.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "185",
+      "pdf_page": 54,
+      "description": "C++ style casts (const_cast, reinterpret_cast, and static_cast) shall be used instead of the traditional C-style casts. See Stroustrup [2], 15.4 and Meyers [7], item 2.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "186",
+      "pdf_page": 55,
+      "description": "There shall be no unreachable code.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "187",
+      "pdf_page": 55,
+      "description": "All non-null statements shall potentially have a side-effect.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "188",
+      "pdf_page": 55,
+      "description": "Labels will not be used, except in switch statements.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "189",
+      "pdf_page": 55,
+      "description": "The goto statement shall not be used.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "190",
+      "pdf_page": 55,
+      "description": "The continue statement shall not be used.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "191",
+      "pdf_page": 55,
+      "description": "The break statement shall not be used (except to terminate the cases of a switch statement).",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "192",
+      "pdf_page": 55,
+      "description": "All if, else if constructs will contain either a final else clause or a comment indicating why a final else clause is not necessary.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "193",
+      "pdf_page": 56,
+      "description": "Every non-empty case clause in a switch statement shall be terminated with a break statement.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "194",
+      "pdf_page": 56,
+      "description": "All switch statements that do not intend to test for every enumeration value shall contain a final default clause.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "195",
+      "pdf_page": 56,
+      "description": "A switch expression will not represent a Boolean value.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "196",
+      "pdf_page": 56,
+      "description": "Every switch statement will have at least two cases and a potential default.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "197",
+      "pdf_page": 56,
+      "description": "Floating point variables shall not be used as loop counters.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "198",
+      "pdf_page": 56,
+      "description": "The initialization expression in a for loop will perform no actions other than to initialize the value of a single for loop parameter. Note that the initialization expression may invoke an accessor that returns an initial element in a sequence: for (Iter_type p = c.begin() ; p != c.end() ; ++p) // Good { … }",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "199",
+      "pdf_page": 57,
+      "description": "The increment expression in a for loop will perform no action other than to change a single loop parameter to the next value for the loop.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "200",
+      "pdf_page": 57,
+      "description": "Null initialize or increment expressions in for loops will not be used; a while loop will be used instead.",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "201",
+      "pdf_page": 57,
+      "description": "Numeric variables being used within a for loop for iteration counting shall not be modified in the body of the loop.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "202",
+      "pdf_page": 57,
+      "description": "Floating point variables shall not be tested for exact equality or inequality.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "203",
+      "pdf_page": 57,
+      "description": "Evaluation of expressions shall not lead to overflow/underflow (unless required algorithmically and then should be heavily documented).",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "204",
+      "pdf_page": 57,
+      "description": "A single operation with side-effects shall only be used in the following contexts: 1. by itself 2. the right-hand side of an assignment 3. a condition 4. the only argument expression with a side-effect in a function call 5. condition of a loop 6. switch condition 7. single part of a chained operation.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "204.1",
+      "pdf_page": 58,
+      "description": "The value of an expression shall be the same under any order of evaluation that the standard permits.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "205",
+      "pdf_page": 58,
+      "description": "The volatile keyword shall not be used unless directly interfacing with hardware.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "206",
+      "pdf_page": 58,
+      "description": "Allocation/deallocation from/to the free store (heap) shall not occur after initialization. Note that the “placement” operator new(), although not technically dynamic memory, may only be used in low-level memory management routines. See AV Rule 70.1 for object lifetime issues associated with placement operator new().",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "207",
+      "pdf_page": 58,
+      "description": "Unencapsulated global data will be avoided.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "208",
+      "pdf_page": 58,
+      "description": "C++ exceptions shall not be used (i.e. throw, catch and try shall not be used.)",
+      "detection": "automated",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "Validated source check implemented."
+    },
+    {
+      "id": "209",
+      "pdf_page": 59,
+      "description": "The basic types of int, short, long, float and double shall not be used, but specific-length equivalents should be typedef’d accordingly for each compiler, and these type names used in the code.",
+      "detection": "review",
+      "modern_note": "Review use of fixed-width types from <cstdint> against the selected target and project policy.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "210",
+      "pdf_page": 59,
+      "description": "Algorithms shall not make assumptions concerning how data is represented in memory (e.g. big endian vs. little endian, base class subobject ordering in derived classes, nonstatic data member ordering across access specifiers, etc.)",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "210.1",
+      "pdf_page": 59,
+      "description": "Algorithms shall not make assumptions concerning the order of allocation of nonstatic data members separated by an access specifier. See also AV Rule 210 on data representation.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "211",
+      "pdf_page": 59,
+      "description": "Algorithms shall not assume that shorts, ints, longs, floats, doubles or long doubles begin at particular addresses.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "212",
+      "pdf_page": 60,
+      "description": "Underflow or overflow functioning shall not be depended on in any special way.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "213",
+      "pdf_page": 60,
+      "description": "No dependence shall be placed on C++’s operator precedence rules, below arithmetic operators, in expressions.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "214",
+      "pdf_page": 60,
+      "description": "Assuming that non-local static objects, in separate translation units, are initialized in a special order shall not be done.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "215",
+      "pdf_page": 60,
+      "description": "Pointer arithmetic will not be used.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "216",
+      "pdf_page": 61,
+      "description": "Programmers should not attempt to prematurely optimize code. See Meyers [7], item 16.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "217",
+      "pdf_page": 61,
+      "description": "Compile-time and link-time errors should be preferred over run-time errors. See Meyers [6], item 46.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "218",
+      "pdf_page": 61,
+      "description": "Compiler warning levels will be set in compliance with project policies.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "219",
+      "pdf_page": 62,
+      "description": "All tests applied to a base class interface shall be applied to all derived class interfaces as well. If the derived class poses stronger postconditions/invariants, then the new postconditions /invariants shall be substituted in the derived class tests.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "220",
+      "pdf_page": 62,
+      "description": "Structural coverage algorithms shall be applied against flattened classes.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    },
+    {
+      "id": "221",
+      "pdf_page": 62,
+      "description": "Structural coverage of a class within an inheritance hierarchy containing virtual functions shall include testing every possible resolution for each set of identical polymorphic references.",
+      "detection": "review",
+      "modern_note": "Same as literal profile.",
+      "review_reason": "No validated automatic check in this release; inspect source and external evidence."
+    }
+  ]
+}

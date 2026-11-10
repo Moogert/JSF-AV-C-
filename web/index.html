@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>JSF AV Checker</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar"><div class="brandmark">JSF</div><div><strong>AV C++ Checker</strong><div class="muted">Local project scanner</div></div><span class="local-pill">● Runs on this computer</span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">PROJECT CHECK</p><h1>Check your C++ project</h1><p class="muted">Choose a project folder, then start a scan. Your files stay on this computer.</p></div><div class="steps"><span class="active">1&nbsp; Choose project</span><span>2&nbsp; Review results</span><span>3&nbsp; Export</span></div></section>
+    <section class="panel setup"><h2>Project setup</h2><label for="project">Project folder</label><div class="pathrow"><input id="project" type="text" placeholder="Example: C:\\Work\\MyProject or /home/me/project" autocomplete="off"><button id="pickProject" class="secondary">Browse…</button></div><p class="hint">The folder containing your C++ source files.</p>
+      <details><summary>Build and scan options</summary><div class="advanced"><label for="compdb">Compilation database folder or file <span class="optional">optional</span></label><div class="pathrow"><input id="compdb" type="text" placeholder="Leave blank to check source and formatting rules only"><button id="pickCompdb" class="secondary">Browse…</button></div><label for="deviations">Approved deviations file <span class="optional">optional</span></label><div class="pathrow"><input id="deviations" type="text" placeholder="Select deviations.json"><button id="pickDeviations" class="secondary">Browse…</button></div><label for="profile">Rule interpretation</label><select id="profile"><option value="literal">Literal — follows the standard PDF (recommended)</option><option value="modern">Modern — applies documented modern C++ interpretations</option></select></div></details>
+      <div class="actions"><button id="scan" class="primary">Start scan</button><span id="status" class="status" role="status">Ready</span></div>
+    </section>
+    <section id="results" class="results hidden" aria-live="polite">
+      <div class="result-head"><div><p class="eyebrow">SCAN RESULTS</p><h2 id="resultTitle">Results</h2><p id="coverageText" class="muted"></p></div><div class="export"><button id="jsonExport" class="secondary" disabled>Download JSON</button><button id="sarifExport" class="secondary" disabled>Download SARIF</button></div></div>
+      <div class="stats"><button class="stat selected" data-filter="all"><span id="countAll">0</span><small>All findings</small></button><button class="stat" data-filter="violation"><span id="countViolation">0</span><small>Violations</small></button><button class="stat" data-filter="review"><span id="countReview">0</span><small>Needs review</small></button><button class="stat" data-filter="coverage-warning"><span id="countWarning">0</span><small>Coverage warnings</small></button><button class="stat" data-filter="suppressed"><span id="countSuppressed">0</span><small>Suppressed</small></button></div>
+      <div class="catalogline"><strong>Rule catalog</strong><span>All 233 rules are accounted for.</span><button id="showCatalog" class="textbutton">View rules</button></div>
+      <div class="finding-layout"><div class="finding-list"><div class="listbar"><label for="search">Search findings</label><input id="search" type="search" placeholder="Rule number, file, or text"></div><div id="findingList"></div></div><aside id="detail" class="detail"><div class="empty-detail"><div class="magnify">⌕</div><h3>Select a finding</h3><p>Choose a result to see the rule, evidence, and location.</p></div></aside></div>
+    </section>
+    <section id="catalog" class="panel hidden"><div class="catalog-header"><div><p class="eyebrow">RULE CATALOG</p><h2>All 233 rules</h2></div><button id="closeCatalog" class="secondary">Close</button></div><input id="catalogSearch" type="search" placeholder="Search rules"><div id="catalogList" class="catalog-list"></div></section>
+    <footer>JSF AV Checker · Local-only · Command line help: <code>jsfav --help</code></footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
