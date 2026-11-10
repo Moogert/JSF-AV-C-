@@ -1,3 +1,5 @@
+// Browser controller for the local API. Project/source text is inserted using textContent
+// so scanned code cannot become executable markup. The token lasts for this server session.
 (() => {
   const token = new URLSearchParams(location.search).get('token') || '';
   const api = async (url, options = {}) => {
@@ -27,6 +29,7 @@
     } catch (e) { status(e.message, 'error'); $('resultTitle').textContent = 'Scan could not start'; $('coverageText').textContent = e.message; }
     finally { $('scan').disabled = false; }
   }
+  // Poll the asynchronous job; keep the browser responsive during libclang analysis.
   async function poll(id) {
     for (;;) {
       const job = await (await api(`/api/v1/scans/${encodeURIComponent(id)}`)).json();
@@ -83,6 +86,7 @@
     section(d, 'Profile', r.profile || resultData.profile);
     if (r.suppressed && r.deviation) section(d, 'Approved deviation', `${r.deviation.reason}\nApproval: ${r.deviation.approval}`);
   }
+  // Exports come from the retained server result, preserving the evidence from this scan.
   async function download(format) {
     try { const response = await api(`/api/v1/scans/${encodeURIComponent(resultData.scanId)}/export?format=${format}`); const blob = await response.blob(); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `jsfav-results.${format === 'sarif' ? 'sarif' : 'json'}`; a.click(); URL.revokeObjectURL(a.href); }
     catch (e) { status(e.message, 'error'); }

@@ -1,3 +1,5 @@
+// Local UI orchestration. Scan work stays in a separate CLI process so libclang
+// working-directory changes cannot race with HTTP handlers. Results stay in memory.
 #define CPPHTTPLIB_THREAD_POOL_COUNT 4
 #include "server.hpp"
 #include <httplib.h>
@@ -33,6 +35,8 @@ namespace fs = std::filesystem;
 using json = nlohmann::json;
 
 namespace {
+// All fields are guarded by mutex; the worker publishes a terminal state only after
+// capturing the child output. Only one job is retained, and running jobs cannot be replaced.
 struct Job {
   std::mutex mutex;
   std::thread worker;
@@ -63,6 +67,8 @@ bool local_host(const httplib::Request &req) {
   const auto host = req.get_header_value("Host");
   return host == "127.0.0.1" || host.rfind("127.0.0.1:", 0) == 0 || host == "localhost" || host.rfind("localhost:", 0) == 0;
 }
+// Binding to loopback alone does not authorize browser requests. Require both
+// a local Host header and the session token before exposing project data.
 bool authorized(const httplib::Request &req, const std::string &token) {
   return local_host(req) && req.has_header("X-JSFAV-Token") && req.get_header_value("X-JSFAV-Token") == token;
 }
@@ -111,6 +117,8 @@ std::string pick_path(bool folder) {
   return picked;
 }
 void open_browser(const std::string &url) { ShellExecuteW(nullptr, L"open", wide(url).c_str(), nullptr, nullptr, SW_SHOWNORMAL); }
+// Escape backslashes before quotes and at argument ends according to Windows argv
+// decoding rules. Filesystem paths must remain a single argument even when they contain spaces.
 std::wstring quote_windows(const std::wstring &s) {
   std::wstring out = L"\"";
   unsigned slashes = 0;
@@ -123,6 +131,8 @@ std::wstring quote_windows(const std::wstring &s) {
   out.append(slashes * 2, L'\\'); out.push_back(L'"');
   return out;
 }
+// Capture stdout and stderr in one pipe: success yields JSON, failure yields diagnostics.
+// Drain the pipe before waiting so a large report cannot block on a full pipe buffer.
 int run_scan_process(const std::vector<std::string> &args, const fs::path &cwd, std::string &output) {
   SECURITY_ATTRIBUTES security{sizeof(SECURITY_ATTRIBUTES), nullptr, TRUE};
   HANDLE read_pipe = nullptr, write_pipe = nullptr;
@@ -161,6 +171,8 @@ std::string pick_path(bool folder) {
 void open_browser(const std::string &url) {
   pid_t pid = fork(); if (pid == 0) { execlp("xdg-open", "xdg-open", url.c_str(), static_cast<char *>(nullptr)); _exit(127); }
 }
+// Capture stdout and stderr in one pipe: success yields JSON, failure yields diagnostics.
+// Drain the pipe before waiting so a large report cannot block on a full pipe buffer.
 int run_scan_process(const std::vector<std::string> &args, const fs::path &cwd, std::string &output) {
   int pipefd[2]; if (pipe(pipefd) != 0) return -1;
   std::vector<char *> argv; for (const auto &arg : args) argv.push_back(const_cast<char *>(arg.c_str())); argv.push_back(nullptr);
@@ -179,6 +191,8 @@ int run_scan_process(const std::vector<std::string> &args, const fs::path &cwd, 
 }
 #endif
 
+// Convert the retained scan without rerunning analysis. Keep result properties and
+// suppression handling aligned with the CLI serializer in main.cpp.
 json make_sarif(const json &scan, const json &catalog) {
   json rules = json::array(), results = json::array();
   if (scan.value("partial", false)) rules.push_back({{"id", "COVERAGE"}, {"shortDescription", {{"text", "Limited scan coverage"}}}});
@@ -253,6 +267,8 @@ int run_web_server(const fs::path &executable, const fs::path &catalog_path) {
     if (!config_text.empty()) { config = fs::absolute(config_text, ec); if (ec || !fs::is_regular_file(config)) { json_response(res, {{"error", "Deviation file is not an accessible file."}}, 400); return; } }
     std::lock_guard<std::mutex> lock(job.mutex);
     if (job.state == "running") { json_response(res, {{"error", "A scan is already running. Wait for it to finish before starting another."}}, 409); return; }
+    // The running-state guard above prevents joining a worker waiting to publish
+    // its result under this mutex; terminal workers can safely be reaped here.
     if (job.worker.joinable()) job.worker.join();
     job.id = make_id(); job.project = project; job.state = "running"; job.error.clear(); job.result = nullptr;
     const std::string id = job.id;
@@ -289,6 +305,8 @@ int run_web_server(const fs::path &executable, const fs::path &catalog_path) {
     std::lock_guard<std::mutex> lock(job.mutex); if (job.state != "completed") { json_response(res, {{"error", "No completed scan is available."}}, 404); return; }
     std::error_code ec; fs::path input(req.get_param_value("path")); fs::path target = fs::canonical(input.is_absolute() ? input : job.project / input, ec);
     if (ec || !fs::is_regular_file(target)) { json_response(res, {{"error", "Source file is unavailable."}}, 404); return; }
+    // Check containment after canonicalization so symlinks cannot expose files
+    // outside the selected project. Preview access is read-only.
     auto rel = fs::relative(target, job.project, ec); if (ec || rel.empty() || *rel.begin() == "..") { json_response(res, {{"error", "Source is outside the selected project."}}, 403); return; }
     unsigned line = 0; try { line = static_cast<unsigned>(std::stoul(req.get_param_value("line"))); } catch (...) { json_response(res, {{"error", "Invalid line number."}}, 400); return; }
     std::ifstream in(target); std::vector<std::string> lines; std::string text; while (std::getline(in, text)) lines.push_back(text);

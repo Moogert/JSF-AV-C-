@@ -167,6 +167,8 @@ GitHub Actions builds and tests Windows and Linux packages. Tag-based GitHub Rel
 
 The CLI is designed for scripts and coding agents: commands never prompt, source files are never modified, JSON has a stable schema, and findings do not change the scan's exit code. See the short [agent usage guide](docs/agent-usage.md) for a reliable workflow and interpretation reminders.
 
+Future coding agents should start with [AGENTS.md](AGENTS.md), then use the [compliance writing guide](docs/writing-compliant-cpp.md) to plan, document, and review changes against the selected profile. Maintainers can follow the [architecture notes](docs/architecture.md) for scanner flow, concurrency, path boundaries, and export behavior.
+
 Quick machine-readable scan:
 
 ```sh

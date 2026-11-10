@@ -1,3 +1,5 @@
+// CLI scanner: lexical checks run on selected files; libclang adds semantic checks
+// when compilation commands are supplied. Every remaining rule has a review path.
 #include <clang-c/CXCompilationDatabase.h>
 #include <clang-c/Index.h>
 #include <nlohmann/json.hpp>
@@ -152,10 +154,13 @@ static json finding_json(const Finding &f, const std::string &profile) {
   return j;
 }
 
+// Deduplicate header findings across translation units without merging distinct locations.
 static std::string finding_key(const Finding &f) {
   return f.rule + "|" + f.classification + "|" + f.path + "|" + std::to_string(f.line) + "|" + std::to_string(f.column);
 }
 
+// Per-invocation state. Source selection uses absolute paths; findings use display paths.
+// Keep suppression metadata on findings so machine-readable exports retain the evidence.
 struct Scan {
   Options options;
   json catalog, deviations;
@@ -220,6 +225,7 @@ static size_t utf8_columns(const std::string &s, size_t bytes) {
   return columns;
 }
 
+// These checks do not require compiler flags and remain available in limited scans.
 static void scan_lines(Scan &scan, const std::string &path) {
   const std::string text = read_file(path);
   scan.source_text[path] = text;
@@ -343,6 +349,7 @@ static size_t after_parens(const std::vector<Token> &t, size_t open) {
   return t.size();
 }
 
+// Token spelling and boundaries avoid matching constructs inside comments or strings.
 static void scan_tokens(Scan &scan, CXTranslationUnit tu, const std::string &path) {
   const auto it = scan.source_text.find(path);
   if (it == scan.source_text.end()) return;
@@ -411,6 +418,8 @@ static unsigned count_returns(CXCursor function) {
   return count;
 }
 
+// Traverse semantic declarations and control flow; nested context tracks permitted breaks
+// and namespace depth independently of textual formatting.
 static CXChildVisitResult visit_ast(CXCursor cursor, CXCursor, CXClientData data) {
   auto ctx = *static_cast<AstContext *>(data);
   const CXCursorKind kind = clang_getCursorKind(cursor);
@@ -555,6 +564,7 @@ static std::vector<std::string> collect_files(Scan &scan) {
   return files;
 }
 
+// Remove compiler-driver/output arguments before passing the command to libclang.
 static std::vector<std::string> compile_arguments(CXCompileCommand command, const std::string &file, const fs::path &dir) {
   std::vector<std::string> args;
   const unsigned n = clang_CompileCommand_getNumArgs(command);
@@ -581,6 +591,8 @@ static void analyze_tu(Scan &scan, CXIndex index, const std::string &file,
   actual_args.push_back("-resource-dir=" + scan.resource_dir.string());
   std::vector<const char *> argv;
   for (const auto &arg : actual_args) argv.push_back(arg.c_str());
+  // Relative include paths are interpreted in the compile command directory. This is
+  // process-wide state: CLI analysis must remain sequential, including restoration on error.
   const fs::path old_dir = fs::current_path();
   CXTranslationUnit tu = nullptr;
   CXErrorCode status;
@@ -694,6 +706,7 @@ static void validate_deviations(Scan &scan) {
   }
 }
 
+// Missing automation is unresolved review work, never implicit compliance.
 static void add_reviews(Scan &scan) {
   const std::set<std::string> lexical = {"11", "26", "29", "30", "31", "32", "33", "35", "41", "43", "53", "54"};
   for (const auto &rule : scan.catalog.at("rules")) {
@@ -709,6 +722,7 @@ static void add_reviews(Scan &scan) {
   }
 }
 
+// Keep this schema compatible with CLI consumers and the browser export adapter.
 static json scan_json(const Scan &scan) {
   json results = json::array();
   unsigned violations = 0, reviews = 0, warnings = 0, suppressed = 0;

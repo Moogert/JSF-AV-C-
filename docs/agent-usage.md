@@ -1,5 +1,7 @@
 # Agent use of `jsfav`
 
+Start with [AGENTS.md](../AGENTS.md) when changing this repository. For writing or reviewing target C++, follow the [compliance writing guide](writing-compliant-cpp.md); scanner invocation alone does not resolve all standard requirements. Maintainer implementation details are in [architecture notes](architecture.md).
+
 For interactive local use, a user can launch the browser UI with `jsfav serve` (or the packaged start script). It is localhost-only; the browser API lives under `/api/v1/` and requires the per-session `X-JSFAV-Token` from the printed URL. The UI supports scan, review, and JSON/SARIF export. Its session is temporary and never edits project files. Agents should continue using the CLI below for deterministic, noninteractive jobs.
 
 1. Find the project's `compile_commands.json`. If absent, run a limited path scan and report `partial: true` to the user.
